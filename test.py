@@ -132,6 +132,18 @@ def daka(uid, SERVERPUSHKEY, MSG_TO):
         pass
     else:
         pass
+      
+    if SERVERPUSHKEY:
+        if text == "打卡成功:":
+            driver = webdriver.Chrome(options=chrome_options)  # 获取浏览器句柄
+            url = "https://sc.ftqq.com/" + SERVERPUSHKEY + ".send?text=" + text
+            if (len(desp)):
+                url += "desp=" + desp
+            driver.get(url)
+    elif MSG_TO:
+        pass
+    else:
+        pass
 
 UID=os.environ["UID"]
 SERVERPUSHKEY = None
